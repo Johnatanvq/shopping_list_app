@@ -1,0 +1,28 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+
+class NewItem extends StatefulWidget {
+  const NewItem({super.key});
+
+  @override
+  State<StatefulWidget> createState() {
+    return _NewItemState();
+  }
+}
+
+class _NewItemState extends State<NewItem> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          'Add a new item',
+        ),
+      ),
+      body: Padding(
+        padding: const EdgeInsetsGeometry.all(12.0),
+        child: Text('The Form'),
+      ),
+    );
+  }
+}
