@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 class NewItem extends StatefulWidget {
   const NewItem({super.key});
 
@@ -8,7 +7,6 @@ class NewItem extends StatefulWidget {
     return _NewItemState();
   }
 }
-
 class _NewItemState extends State<NewItem> {
   @override
   Widget build(BuildContext context) {
