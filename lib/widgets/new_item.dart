@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopping_list_app/data/categories.dart';
 class NewItem extends StatefulWidget {
   const NewItem({super.key});
 
@@ -37,6 +38,27 @@ class _NewItemState extends State<NewItem> {
                       label: Text('Quantity')
                     ),
                     initialValue: '1',
+                  ),
+                  const SizedBox(width: 8.0,),
+                  DropdownButtonFormField(
+                    items: [
+                      for (final category in categories.entries)
+                        DropdownMenuItem(
+                          value: category.value,
+                          child: Row(
+                            children: [
+                              Container(
+                                width: 16,
+                                height: 16,
+                                color: category.value.color ,
+                              ),
+                              const SizedBox(width: 6.0,),
+                              Text(category.value.title)
+                            ],
+                          )
+                        ),
+                    ], 
+                    onChanged: (value) {}
                   ),
                 ],
               )
