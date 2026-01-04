@@ -18,7 +18,21 @@ class _NewItemState extends State<NewItem> {
       ),
       body: Padding(
         padding: const EdgeInsetsGeometry.all(12.0),
-        child: Text('The Form'),
+        child: Form(
+          child: Column(
+            children: [
+              TextFormField(
+                maxLength: 50,
+                decoration: InputDecoration(
+                  label: Text('Name')
+                ),
+                validator: (value) {
+                  return 'Demo...';
+                },
+              )
+            ],
+          )
+        ),
       ),
     );
   }
