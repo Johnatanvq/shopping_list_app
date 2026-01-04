@@ -29,6 +29,16 @@ class _NewItemState extends State<NewItem> {
                 validator: (value) {
                   return 'Demo...';
                 },
+              ),
+              Row(
+                children: [
+                  TextFormField(
+                    decoration: InputDecoration(
+                      label: Text('Quantity')
+                    ),
+                    initialValue: '1',
+                  ),
+                ],
               )
             ],
           )
