@@ -54,7 +54,7 @@ class _NewItemState extends State<NewItem> {
                                 Container(
                                   width: 16,
                                   height: 16,
-                                  color: category.value.color ,
+                                  color: category.value.color,
                                 ),
                                 const SizedBox(width: 6.0,),
                                 Text(category.value.title)
