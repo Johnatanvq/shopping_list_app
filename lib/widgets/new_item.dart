@@ -39,7 +39,7 @@ class _NewItemState extends State<NewItem> {
                       decoration: InputDecoration(
                         label: Text('Quantity')
                       ),
-                      initialValue: '1',
+                      initialValue: '0',
                     ),
                   ),
                   const SizedBox(width: 8.0,),
