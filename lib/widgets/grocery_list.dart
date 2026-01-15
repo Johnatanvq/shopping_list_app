@@ -10,7 +10,6 @@ class GroceryList extends StatefulWidget{
 class _GroceryListState extends State<GroceryList> {
   final List<GroceryItem> _groceryItems = [];
 
-
   void _addItem() async{
     final newItem = await Navigator.of(context).push<GroceryItem>(
       MaterialPageRoute(
@@ -35,7 +34,11 @@ class _GroceryListState extends State<GroceryList> {
 
   @override
   Widget build(BuildContext context) {
-    Widget content = Center(child: Text('No items added yet.'),);
+    Widget content = Center(
+      child: Text(
+        'No items added yet.'
+      ),
+    );
 
     if (_groceryItems.isNotEmpty) {
       content = ListView.builder(
