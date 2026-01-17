@@ -18,9 +18,13 @@ class _NewItemState extends State<NewItem> {
   var _enteredName = '';
   var _enteredQuantity = 1;
   var _selectedCategory = categories[Categories.vegetables]!;
+  var _isSending = false;
 
   void _saveItem() async {
     if (_formKey.currentState!.validate()) {
+      setState(() {
+        _isSending = true;
+      });
       _formKey.currentState!.save();
       final url = Uri.https('shopping-list-app-124ad-default-rtdb.firebaseio.com', 'shopping-list.json');
       final response = await http.post(
@@ -138,14 +142,24 @@ class _NewItemState extends State<NewItem> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   TextButton(
-                    onPressed: () {
+                    onPressed: _isSending
+                    ?  null 
+                    : () {
                       _formKey.currentState!.reset();
                     }, 
                     child: const Text('Reset')
                   ),
                   ElevatedButton(
-                    onPressed: _saveItem, 
-                    child: const Text('Add Item')
+                    onPressed: _isSending
+                    ? null
+                    : _saveItem, 
+                    child: _isSending 
+                        ? const SizedBox(
+                          height: 16.0,
+                          width: 16.0, 
+                          child: CircularProgressIndicator(),
+                        ) 
+                        : const Text('Add Item')
                   ),
                 ],
               )
