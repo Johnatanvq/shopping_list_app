@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import 'package:shopping_list_app/models/grocery_item.dart';
 import 'package:shopping_list_app/widgets/new_item.dart';
 class GroceryList extends StatefulWidget{
@@ -10,12 +11,26 @@ class GroceryList extends StatefulWidget{
 class _GroceryListState extends State<GroceryList> {
   final List<GroceryItem> _groceryItems = [];
 
+  @override
+  void initState() {
+    super.initState();
+    _loadItems();
+  }
+
+  void _loadItems () async {
+    final url = Uri.https('shopping-list-app-124ad-default-rtdb.firebaseio.com', 'shopping-list.json');
+    final response = await http.get(url);
+    print(response);
+  }
+
   void _addItem() async{
     await Navigator.of(context).push<GroceryItem>(
       MaterialPageRoute(
         builder: (ctx) => const NewItem(),
       ),
     );
+
+    _loadItems();
   }
 
   void _removeItem(GroceryItem item) {
