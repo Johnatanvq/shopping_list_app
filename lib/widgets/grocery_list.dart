@@ -31,7 +31,6 @@ class _GroceryListState extends State<GroceryList> {
           _error = 'Failed to fetch data. Please try again later.';
         });
       }
-      print(response.statusCode);
 
       if (response.body == 'null') {
         setState(() {
@@ -40,7 +39,6 @@ class _GroceryListState extends State<GroceryList> {
         return;
       }
       final Map<String, dynamic> listData = json.decode(response.body);
-      print(listData);
       final List<GroceryItem> loadedItemsList = [];
 
       for (final item in listData.entries) {
@@ -66,9 +64,6 @@ class _GroceryListState extends State<GroceryList> {
           _error = 'Something went wrong. Please try again.';
         });
     }
-    
-
-    
   }
 
   void _addItem() async{
